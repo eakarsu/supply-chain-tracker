@@ -1,0 +1,30 @@
+{
+  "id": "supply-chain-tracker",
+  "title": "Supply Chain Tracker App",
+  "industry": "Transportation & Logistics",
+  "industryId": "transportation-logistics",
+  "specialization": "Supply Chain Tracker",
+  "sourcePlatformGroup": "transport-logistics-platform",
+  "sources": [
+    "AIParkingManagementPlatform",
+    "AISupplyChainReshoringAdvisor",
+    "AISupplyChainTracker",
+    "hardware-supply-chain"
+  ],
+  "featureCount": 252,
+  "candidateFeatureCount": 338,
+  "eliminatedSimilarFeatures": 86,
+  "evidenceCount": 888,
+  "aiPageCount": 0,
+  "sourceAIPageCount": 0,
+  "featureEvidencePolicy": "Existing source routes, pages, APIs, models, schemas, and navigation only",
+  "optimizationPolicy": "Equivalent feature names are consolidated once per industry and assigned to one canonical app owner",
+  "database": "database.sqlite",
+  "databaseSeed": {
+    "seededProjects": 2,
+    "seededTables": 28,
+    "seededRows": 458
+  },
+  "visibleFeatureCount": 35,
+  "featureVisibilityMode": "seeded-or-ai"
+}

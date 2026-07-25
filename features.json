@@ -1324,21 +1324,12 @@
       "/bom-optimizer"
     ],
     "sourceProjects": [
-      "electronics-in-space",
       "hardware-supply-chain"
     ],
     "consolidatedFromApps": [
-      "transportation-logistics/space-debris-tracker",
       "transportation-logistics/supply-chain-tracker"
     ],
     "evidence": [
-      {
-        "kind": "api",
-        "sourceProject": "electronics-in-space",
-        "path": "backend/routes/ai.js:106",
-        "route": "/bom-optimizer",
-        "originApp": "transportation-logistics/space-debris-tracker"
-      },
       {
         "kind": "api",
         "sourceProject": "hardware-supply-chain",
@@ -2664,9 +2655,11 @@
     "canonicalKey": "create",
     "aliases": [],
     "kinds": [
+      "ai-page",
       "api"
     ],
     "routes": [
+      "/scenario-bundles?tool=create",
       "/scenarios/create"
     ],
     "sourceProjects": [
@@ -2676,6 +2669,13 @@
       "transportation-logistics/supply-chain-tracker"
     ],
     "evidence": [
+      {
+        "kind": "ai-page",
+        "sourceProject": "AISupplyChainReshoringAdvisor",
+        "path": "frontend/src/pages/ScenarioBundles.js:1",
+        "route": "/scenario-bundles?tool=create",
+        "originApp": "transportation-logistics/supply-chain-tracker"
+      },
       {
         "kind": "api",
         "sourceProject": "AISupplyChainReshoringAdvisor",
@@ -7921,12 +7921,14 @@
     "canonicalKey": "cost forecast labor",
     "aliases": [],
     "kinds": [
+      "ai-page",
       "api",
       "page"
     ],
     "routes": [
       "/LaborCostForecast",
-      "/labor-cost-forecast"
+      "/labor-cost-forecast",
+      "/labor-cost-forecast?tool=labor-cost-forecast"
     ],
     "sourceProjects": [
       "AISupplyChainReshoringAdvisor"
@@ -7935,6 +7937,13 @@
       "transportation-logistics/supply-chain-tracker"
     ],
     "evidence": [
+      {
+        "kind": "ai-page",
+        "sourceProject": "AISupplyChainReshoringAdvisor",
+        "path": "frontend/src/pages/LaborCostForecast.js:46",
+        "route": "/labor-cost-forecast?tool=labor-cost-forecast",
+        "originApp": "transportation-logistics/supply-chain-tracker"
+      },
       {
         "kind": "api",
         "sourceProject": "AISupplyChainReshoringAdvisor",
@@ -9047,12 +9056,14 @@
     "canonicalKey": "last mile optimize",
     "aliases": [],
     "kinds": [
+      "ai-page",
       "api",
       "page"
     ],
     "routes": [
       "/OptimizeLastMile",
-      "/optimize-last-mile"
+      "/optimize-last-mile",
+      "/optimize-last-mile?tool=optimize-last-mile"
     ],
     "sourceProjects": [
       "AISupplyChainTracker"
@@ -9061,6 +9072,13 @@
       "transportation-logistics/supply-chain-tracker"
     ],
     "evidence": [
+      {
+        "kind": "ai-page",
+        "sourceProject": "AISupplyChainTracker",
+        "path": "client/src/pages/OptimizeLastMile.js:93",
+        "route": "/optimize-last-mile?tool=optimize-last-mile",
+        "originApp": "transportation-logistics/supply-chain-tracker"
+      },
       {
         "kind": "api",
         "sourceProject": "AISupplyChainTracker",
@@ -9096,12 +9114,14 @@
     "canonicalKey": "network optimize",
     "aliases": [],
     "kinds": [
+      "ai-page",
       "api",
       "page"
     ],
     "routes": [
       "/OptimizeNetwork",
-      "/optimize-network"
+      "/optimize-network",
+      "/optimize-network?tool=optimize-network"
     ],
     "sourceProjects": [
       "AISupplyChainTracker"
@@ -9110,6 +9130,13 @@
       "transportation-logistics/supply-chain-tracker"
     ],
     "evidence": [
+      {
+        "kind": "ai-page",
+        "sourceProject": "AISupplyChainTracker",
+        "path": "client/src/pages/OptimizeNetwork.js:87",
+        "route": "/optimize-network?tool=optimize-network",
+        "originApp": "transportation-logistics/supply-chain-tracker"
+      },
       {
         "kind": "api",
         "sourceProject": "AISupplyChainTracker",
@@ -9763,6 +9790,60 @@
     ]
   },
   {
+    "name": "Predict Maintenance",
+    "canonicalKey": "maintenance predict",
+    "aliases": [
+      "Maintenance Predict"
+    ],
+    "kinds": [
+      "api"
+    ],
+    "routes": [
+      "/maintenance-predict",
+      "/predict-maintenance"
+    ],
+    "sourceProjects": [
+      "AIAnalyzetelematics",
+      "AIFleetElectrificationPlanner",
+      "AIParkingManagementPlatform",
+      "AISupplyChainTracker"
+    ],
+    "consolidatedFromApps": [
+      "transportation-logistics/fleet-maintenance-scheduler",
+      "transportation-logistics/supply-chain-tracker"
+    ],
+    "evidence": [
+      {
+        "kind": "api",
+        "sourceProject": "AIFleetElectrificationPlanner",
+        "path": "backend/src/routes/ai.js:324",
+        "route": "/maintenance-predict",
+        "originApp": "transportation-logistics/fleet-maintenance-scheduler"
+      },
+      {
+        "kind": "api",
+        "sourceProject": "AIAnalyzetelematics",
+        "path": "backend/routes/ai.js:193",
+        "route": "/predict-maintenance",
+        "originApp": "transportation-logistics/fleet-maintenance-scheduler"
+      },
+      {
+        "kind": "api",
+        "sourceProject": "AIParkingManagementPlatform",
+        "path": "server/routes/ai.js:509",
+        "route": "/predict-maintenance",
+        "originApp": "transportation-logistics/supply-chain-tracker"
+      },
+      {
+        "kind": "api",
+        "sourceProject": "AISupplyChainTracker",
+        "path": "server/routes/fleetAgents.js:52",
+        "route": "/predict-maintenance",
+        "originApp": "transportation-logistics/supply-chain-tracker"
+      }
+    ]
+  },
+  {
     "name": "Predict Occupancy",
     "canonicalKey": "occupancy predict",
     "aliases": [],
@@ -9826,13 +9907,15 @@
     "canonicalKey": "issue predict quality",
     "aliases": [],
     "kinds": [
+      "ai-page",
       "api",
       "navigation",
       "page"
     ],
     "routes": [
       "/PredictQualityIssues",
-      "/predict-quality-issues"
+      "/predict-quality-issues",
+      "/predict-quality?tool=predict-quality-issues"
     ],
     "sourceProjects": [
       "AISupplyChainTracker"
@@ -9841,6 +9924,13 @@
       "transportation-logistics/supply-chain-tracker"
     ],
     "evidence": [
+      {
+        "kind": "ai-page",
+        "sourceProject": "AISupplyChainTracker",
+        "path": "client/src/pages/PredictQualityIssues.js:87",
+        "route": "/predict-quality?tool=predict-quality-issues",
+        "originApp": "transportation-logistics/supply-chain-tracker"
+      },
       {
         "kind": "api",
         "sourceProject": "AISupplyChainTracker",
@@ -10394,6 +10484,32 @@
     ]
   },
   {
+    "name": "Reshoring Decision Engine",
+    "canonicalKey": "decision engine reshoring",
+    "aliases": [],
+    "kinds": [
+      "ai-page"
+    ],
+    "routes": [
+      "/reshoring-decision"
+    ],
+    "sourceProjects": [
+      "AISupplyChainReshoringAdvisor"
+    ],
+    "consolidatedFromApps": [
+      "transportation-logistics/supply-chain-tracker"
+    ],
+    "evidence": [
+      {
+        "kind": "ai-page",
+        "sourceProject": "AISupplyChainReshoringAdvisor",
+        "path": "frontend/src/pages/ReshoringDecision.js:1",
+        "route": "/reshoring-decision",
+        "originApp": "transportation-logistics/supply-chain-tracker"
+      }
+    ]
+  },
+  {
     "name": "Resolve",
     "canonicalKey": "resolve",
     "aliases": [],
@@ -10692,6 +10808,290 @@
         "sourceProject": "AISupplyChainTracker",
         "path": "server/routes/analytics.js:55",
         "route": "/route-efficiency",
+        "originApp": "transportation-logistics/supply-chain-tracker"
+      }
+    ]
+  },
+  {
+    "name": "Run",
+    "canonicalKey": "run",
+    "aliases": [],
+    "kinds": [
+      "ai-page",
+      "api"
+    ],
+    "routes": [
+      "/run",
+      "/scenario-bundles?tool=run",
+      "/scenarios/:id/run"
+    ],
+    "sourceProjects": [
+      "AIParkingManagementPlatform",
+      "AISupplyChainReshoringAdvisor",
+      "AISupplyChainTracker",
+      "hardware-supply-chain"
+    ],
+    "consolidatedFromApps": [
+      "transportation-logistics/supply-chain-tracker"
+    ],
+    "evidence": [
+      {
+        "kind": "api",
+        "sourceProject": "AIParkingManagementPlatform",
+        "path": "server/routes/customFeat01_AutonomousPricingEngine.js:85",
+        "route": "/run",
+        "originApp": "transportation-logistics/supply-chain-tracker"
+      },
+      {
+        "kind": "api",
+        "sourceProject": "AIParkingManagementPlatform",
+        "path": "server/routes/customFeat02_ComputerVisionEnforcement.js:85",
+        "route": "/run",
+        "originApp": "transportation-logistics/supply-chain-tracker"
+      },
+      {
+        "kind": "api",
+        "sourceProject": "AIParkingManagementPlatform",
+        "path": "server/routes/customFeat03_EvChargingOptimization.js:85",
+        "route": "/run",
+        "originApp": "transportation-logistics/supply-chain-tracker"
+      },
+      {
+        "kind": "api",
+        "sourceProject": "AIParkingManagementPlatform",
+        "path": "server/routes/customFeat04_ResidentPermitFraudDetection.js:85",
+        "route": "/run",
+        "originApp": "transportation-logistics/supply-chain-tracker"
+      },
+      {
+        "kind": "api",
+        "sourceProject": "AIParkingManagementPlatform",
+        "path": "server/routes/customFeat05_TrafficAwareGuidance.js:85",
+        "route": "/run",
+        "originApp": "transportation-logistics/supply-chain-tracker"
+      },
+      {
+        "kind": "api",
+        "sourceProject": "AIParkingManagementPlatform",
+        "path": "server/routes/gapFeat_facilities_without_facility.js:72",
+        "route": "/run",
+        "originApp": "transportation-logistics/supply-chain-tracker"
+      },
+      {
+        "kind": "api",
+        "sourceProject": "AIParkingManagementPlatform",
+        "path": "server/routes/gapFeat_limited_customer_self.js:72",
+        "route": "/run",
+        "originApp": "transportation-logistics/supply-chain-tracker"
+      },
+      {
+        "kind": "api",
+        "sourceProject": "AIParkingManagementPlatform",
+        "path": "server/routes/gapFeat_limited_multi.js:72",
+        "route": "/run",
+        "originApp": "transportation-logistics/supply-chain-tracker"
+      },
+      {
+        "kind": "api",
+        "sourceProject": "AIParkingManagementPlatform",
+        "path": "server/routes/gapFeat_maintenance_without_asset.js:72",
+        "route": "/run",
+        "originApp": "transportation-logistics/supply-chain-tracker"
+      },
+      {
+        "kind": "api",
+        "sourceProject": "AIParkingManagementPlatform",
+        "path": "server/routes/gapFeat_no_integration_with_traffic_navigation_apps_waze_g.js:72",
+        "route": "/run",
+        "originApp": "transportation-logistics/supply-chain-tracker"
+      },
+      {
+        "kind": "api",
+        "sourceProject": "AIParkingManagementPlatform",
+        "path": "server/routes/gapFeat_no_integrations_with_ride.js:72",
+        "route": "/run",
+        "originApp": "transportation-logistics/supply-chain-tracker"
+      },
+      {
+        "kind": "api",
+        "sourceProject": "AIParkingManagementPlatform",
+        "path": "server/routes/gapFeat_no_license_plate_database_integration_dmv_vehicle_.js:72",
+        "route": "/run",
+        "originApp": "transportation-logistics/supply-chain-tracker"
+      },
+      {
+        "kind": "api",
+        "sourceProject": "AIParkingManagementPlatform",
+        "path": "server/routes/gapFeat_no_native_mobile_app_web_only.js:72",
+        "route": "/run",
+        "originApp": "transportation-logistics/supply-chain-tracker"
+      },
+      {
+        "kind": "api",
+        "sourceProject": "AIParkingManagementPlatform",
+        "path": "server/routes/gapFeat_no_webhooks_for_external_systems.js:72",
+        "route": "/run",
+        "originApp": "transportation-logistics/supply-chain-tracker"
+      },
+      {
+        "kind": "api",
+        "sourceProject": "AIParkingManagementPlatform",
+        "path": "server/routes/gapFeat_security_without_intrusion.js:72",
+        "route": "/run",
+        "originApp": "transportation-logistics/supply-chain-tracker"
+      },
+      {
+        "kind": "ai-page",
+        "sourceProject": "AISupplyChainReshoringAdvisor",
+        "path": "frontend/src/pages/ScenarioBundles.js:1",
+        "route": "/scenario-bundles?tool=run",
+        "originApp": "transportation-logistics/supply-chain-tracker"
+      },
+      {
+        "kind": "api",
+        "sourceProject": "AISupplyChainReshoringAdvisor",
+        "path": "backend/routes/aiAdvanced.js:149",
+        "route": "/scenarios/:id/run",
+        "originApp": "transportation-logistics/supply-chain-tracker"
+      },
+      {
+        "kind": "api",
+        "sourceProject": "AISupplyChainReshoringAdvisor",
+        "path": "backend/routes/gapAiEndpointsUnderEnumeratedShouldExposeLaborCostPrediction.js:55",
+        "route": "/run",
+        "originApp": "transportation-logistics/supply-chain-tracker"
+      },
+      {
+        "kind": "api",
+        "sourceProject": "AISupplyChainReshoringAdvisor",
+        "path": "backend/routes/gapNoConversationalReshoringAdvisorChat.js:55",
+        "route": "/run",
+        "originApp": "transportation-logistics/supply-chain-tracker"
+      },
+      {
+        "kind": "api",
+        "sourceProject": "AISupplyChainReshoringAdvisor",
+        "path": "backend/routes/gapNoFeasibilityScoringDecisionTree.js:55",
+        "route": "/run",
+        "originApp": "transportation-logistics/supply-chain-tracker"
+      },
+      {
+        "kind": "api",
+        "sourceProject": "AISupplyChainReshoringAdvisor",
+        "path": "backend/routes/gapNoIntegrationsWithPublicDataApisBlsUn.js:55",
+        "route": "/run",
+        "originApp": "transportation-logistics/supply-chain-tracker"
+      },
+      {
+        "kind": "api",
+        "sourceProject": "AISupplyChainReshoringAdvisor",
+        "path": "backend/routes/gapNoMultiTenantClientWorkspaceSeparation.js:55",
+        "route": "/run",
+        "originApp": "transportation-logistics/supply-chain-tracker"
+      },
+      {
+        "kind": "api",
+        "sourceProject": "AISupplyChainReshoringAdvisor",
+        "path": "backend/routes/gapNoProjectManagementForReshoringInitiatives.js:55",
+        "route": "/run",
+        "originApp": "transportation-logistics/supply-chain-tracker"
+      },
+      {
+        "kind": "api",
+        "sourceProject": "AISupplyChainReshoringAdvisor",
+        "path": "backend/routes/gapNoScenarioComparisonEndpoint.js:55",
+        "route": "/run",
+        "originApp": "transportation-logistics/supply-chain-tracker"
+      },
+      {
+        "kind": "api",
+        "sourceProject": "AISupplyChainReshoringAdvisor",
+        "path": "backend/routes/gapNoScenarioModelingComparisonUiRoute.js:55",
+        "route": "/run",
+        "originApp": "transportation-logistics/supply-chain-tracker"
+      },
+      {
+        "kind": "api",
+        "sourceProject": "AISupplyChainReshoringAdvisor",
+        "path": "backend/routes/gapNoWebhooksOrExternalNotifications.js:55",
+        "route": "/run",
+        "originApp": "transportation-logistics/supply-chain-tracker"
+      },
+      {
+        "kind": "api",
+        "sourceProject": "AISupplyChainTracker",
+        "path": "server/routes/gapNo3plIntegration.js:55",
+        "route": "/run",
+        "originApp": "transportation-logistics/supply-chain-tracker"
+      },
+      {
+        "kind": "api",
+        "sourceProject": "AISupplyChainTracker",
+        "path": "server/routes/gapNoAiDrivenFreightCostOptimization.js:55",
+        "route": "/run",
+        "originApp": "transportation-logistics/supply-chain-tracker"
+      },
+      {
+        "kind": "api",
+        "sourceProject": "AISupplyChainTracker",
+        "path": "server/routes/gapNoAiDrivenNetworkOptimizationFacilitySourcingPointPlacement.js:55",
+        "route": "/run",
+        "originApp": "transportation-logistics/supply-chain-tracker"
+      },
+      {
+        "kind": "api",
+        "sourceProject": "AISupplyChainTracker",
+        "path": "server/routes/gapNoAuditLog.js:55",
+        "route": "/run",
+        "originApp": "transportation-logistics/supply-chain-tracker"
+      },
+      {
+        "kind": "api",
+        "sourceProject": "AISupplyChainTracker",
+        "path": "server/routes/gapNoCustomerPortalForShipmentVisibility.js:55",
+        "route": "/run",
+        "originApp": "transportation-logistics/supply-chain-tracker"
+      },
+      {
+        "kind": "api",
+        "sourceProject": "AISupplyChainTracker",
+        "path": "server/routes/gapNoFreightCostAnalytics.js:55",
+        "route": "/run",
+        "originApp": "transportation-logistics/supply-chain-tracker"
+      },
+      {
+        "kind": "api",
+        "sourceProject": "AISupplyChainTracker",
+        "path": "server/routes/gapNoIotSensorIngestionTemperatureHumidityForCold.js:55",
+        "route": "/run",
+        "originApp": "transportation-logistics/supply-chain-tracker"
+      },
+      {
+        "kind": "api",
+        "sourceProject": "AISupplyChainTracker",
+        "path": "server/routes/gapNoMultiTenantOperatorSeparation.js:55",
+        "route": "/run",
+        "originApp": "transportation-logistics/supply-chain-tracker"
+      },
+      {
+        "kind": "api",
+        "sourceProject": "AISupplyChainTracker",
+        "path": "server/routes/gapNoPredictiveQualityScoring.js:55",
+        "route": "/run",
+        "originApp": "transportation-logistics/supply-chain-tracker"
+      },
+      {
+        "kind": "api",
+        "sourceProject": "AISupplyChainTracker",
+        "path": "server/routes/gapNoWebhooksOrExternalNotifications.js:55",
+        "route": "/run",
+        "originApp": "transportation-logistics/supply-chain-tracker"
+      },
+      {
+        "kind": "api",
+        "sourceProject": "hardware-supply-chain",
+        "path": "backend/routes/aql.js:69",
+        "route": "/run",
         "originApp": "transportation-logistics/supply-chain-tracker"
       }
     ]
@@ -11099,12 +11499,14 @@
     "canonicalKey": "risk score site",
     "aliases": [],
     "kinds": [
+      "ai-page",
       "api",
       "page"
     ],
     "routes": [
       "/SiteRiskScore",
-      "/site-risk-score"
+      "/site-risk-score",
+      "/site-risk-score?tool=site-risk-score"
     ],
     "sourceProjects": [
       "AISupplyChainReshoringAdvisor"
@@ -11113,6 +11515,13 @@
       "transportation-logistics/supply-chain-tracker"
     ],
     "evidence": [
+      {
+        "kind": "ai-page",
+        "sourceProject": "AISupplyChainReshoringAdvisor",
+        "path": "frontend/src/pages/SiteRiskScore.js:43",
+        "route": "/site-risk-score?tool=site-risk-score",
+        "originApp": "transportation-logistics/supply-chain-tracker"
+      },
       {
         "kind": "api",
         "sourceProject": "AISupplyChainReshoringAdvisor",
@@ -11716,12 +12125,14 @@
     "canonicalKey": "chain resilience score supply",
     "aliases": [],
     "kinds": [
+      "ai-page",
       "api",
       "page"
     ],
     "routes": [
       "/SupplyChainResilienceScore",
-      "/supply-chain-resilience-score"
+      "/supply-chain-resilience-score",
+      "/supply-chain-resilience-score?tool=supply-chain-resilience-score"
     ],
     "sourceProjects": [
       "AISupplyChainReshoringAdvisor"
@@ -11730,6 +12141,13 @@
       "transportation-logistics/supply-chain-tracker"
     ],
     "evidence": [
+      {
+        "kind": "ai-page",
+        "sourceProject": "AISupplyChainReshoringAdvisor",
+        "path": "frontend/src/pages/SupplyChainResilienceScore.js:51",
+        "route": "/supply-chain-resilience-score?tool=supply-chain-resilience-score",
+        "originApp": "transportation-logistics/supply-chain-tracker"
+      },
       {
         "kind": "api",
         "sourceProject": "AISupplyChainReshoringAdvisor",
@@ -11784,12 +12202,14 @@
     "canonicalKey": "forecast impact tariff",
     "aliases": [],
     "kinds": [
+      "ai-page",
       "api",
       "page"
     ],
     "routes": [
       "/TariffImpactForecast",
-      "/tariff-impact-forecast"
+      "/tariff-impact-forecast",
+      "/tariff-impact-forecast?tool=tariff-impact-forecast"
     ],
     "sourceProjects": [
       "AISupplyChainReshoringAdvisor"
@@ -11798,6 +12218,13 @@
       "transportation-logistics/supply-chain-tracker"
     ],
     "evidence": [
+      {
+        "kind": "ai-page",
+        "sourceProject": "AISupplyChainReshoringAdvisor",
+        "path": "frontend/src/pages/TariffImpactForecast.js:52",
+        "route": "/tariff-impact-forecast?tool=tariff-impact-forecast",
+        "originApp": "transportation-logistics/supply-chain-tracker"
+      },
       {
         "kind": "api",
         "sourceProject": "AISupplyChainReshoringAdvisor",

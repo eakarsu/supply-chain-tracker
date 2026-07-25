@@ -11,20 +11,20 @@
     "AISupplyChainTracker",
     "hardware-supply-chain"
   ],
-  "featureCount": 252,
+  "featureCount": 253,
   "candidateFeatureCount": 338,
-  "eliminatedSimilarFeatures": 86,
-  "evidenceCount": 888,
+  "eliminatedSimilarFeatures": 85,
+  "evidenceCount": 975,
   "aiPageCount": 0,
   "sourceAIPageCount": 0,
   "featureEvidencePolicy": "Existing source routes, pages, APIs, models, schemas, and navigation only",
   "optimizationPolicy": "Equivalent feature names are consolidated once per industry and assigned to one canonical app owner",
   "database": "database.sqlite",
   "databaseSeed": {
-    "seededProjects": 2,
-    "seededTables": 28,
-    "seededRows": 458
+    "seededProjects": 1,
+    "seededTables": 11,
+    "seededRows": 176
   },
-  "visibleFeatureCount": 35,
+  "visibleFeatureCount": 20,
   "featureVisibilityMode": "seeded-or-ai"
 }
